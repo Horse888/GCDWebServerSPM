@@ -1,4 +1,4 @@
-// swift-tools-version:5.6
+// swift-tools-version:5.8
 
 import PackageDescription
 
@@ -11,22 +11,22 @@ let package = Package(
 	products: [
 		.library(
 			name: "GCDWebServer",
-			targets: ["GCDWebServer"]),
+			targets: ["GCDWebServer", "GCDWebUploader"]),
 	],
 	dependencies: [
 	],
 	targets: [
 		.target(
 			name: "GCDWebServer",
-			dependencies: [],
-			path: ".",
-			exclude: ["README.md"],
-			sources: ["Core", "Requests", "Responses", "private", "Uploader"],
+			sources: ["Core", "Requests", "Responses", "Private"],
+			publicHeadersPath: "Include"
+		),
+		.target(
+			name: "GCDWebUploader",
+			dependencies: ["GCDWebServer"],
+			sources: ["Core"],
 			resources: [.copy("./Bundle/GCDWebUploader.bundle")],
-			publicHeadersPath: "include",
-			cxxSettings: [
-				.headerSearchPath("./private")
-			]
+			publicHeadersPath: "Include"
 		)
 	]
 )

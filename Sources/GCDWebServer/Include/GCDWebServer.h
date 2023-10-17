@@ -39,7 +39,6 @@
 #import "GCDWebServerMultiPartFormRequest.h"
 #import "GCDWebServerStreamedResponse.h"
 #import "GCDWebServerURLEncodedFormRequest.h"
-#import "GCDWebUploader.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
