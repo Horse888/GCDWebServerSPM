@@ -21,7 +21,8 @@ let package = Package(
 			dependencies: [],
 			path: ".",
 			exclude: ["README.md"],
-			sources: ["Core", "Requests", "Responses", "private"],
+			sources: ["Core", "Requests", "Responses", "private", "Uploader"],
+			resources: [.copy("./Bundle/GCDWebUploader.bundle")],
 			publicHeadersPath: "include",
 			cxxSettings: [
 				.headerSearchPath("./private")
