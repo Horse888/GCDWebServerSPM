@@ -1,4 +1,4 @@
-// swift-tools-version:5.8
+// swift-tools-version:5.10
 
 import PackageDescription
 
@@ -11,7 +11,7 @@ let package = Package(
 	products: [
 		.library(
 			name: "GCDWebServer",
-			targets: ["GCDWebServer", "GCDWebUploader"]),
+			targets: ["GCDWebServer", "GCDWebUploader"])
 	],
 	dependencies: [
 	],
