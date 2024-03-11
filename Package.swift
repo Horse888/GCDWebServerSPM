@@ -24,9 +24,14 @@ let package = Package(
 		.target(
 			name: "GCDWebUploader",
 			dependencies: ["GCDWebServer"],
+			path: ".",
+			exclude: ["README.md"],
 			sources: ["Core"],
-			resources: [.copy("./Bundle/GCDWebUploader.bundle")],
+			resources: [.copy("./Bundle/GCDWebUploader.bundle"), .copy("PrivacyInfo.xcprivacy")],
 			publicHeadersPath: "Include"
+//			cxxSettings: [
+//				.headerSearchPath("./private")
+//			]
 		)
 	]
 )
