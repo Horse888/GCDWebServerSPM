@@ -1,21 +1,23 @@
-// swift-tools-version:5.10
+// swift-tools-version: 5.10
+// The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 let package = Package(
-	name: "GCDWebServer",
-	platforms: [
-		.macOS(.v10_15),
-		.iOS(.v13),
-	],
-	products: [
-		.library(
-			name: "GCDWebServer",
-			targets: ["GCDWebServer", "GCDWebUploader"])
-	],
-	dependencies: [
-	],
-	targets: [
+    name: "GCDWebServerSPM",
+    products: [
+        // Products define the executables and libraries a package produces, making them visible to other packages.
+        .library(
+            name: "GCDWebServerSPM",
+            targets: ["GCDWebServerSPM", "GCDWebUploader"]),
+    ],
+    targets: [
+        // Targets are the basic building blocks of a package, defining a module or a test suite.
+        // Targets can depend on other targets in this package and products from dependencies.
+        .target(
+            name: "GCDWebServerSPM",
+			resources: [.copy("../../PrivacyInfo.xcprivacy")]
+		),
 		.target(
 			name: "GCDWebServer",
 			sources: ["Core", "Requests", "Responses", "Private"],
@@ -24,14 +26,13 @@ let package = Package(
 		.target(
 			name: "GCDWebUploader",
 			dependencies: ["GCDWebServer"],
-			path: ".",
-			exclude: ["README.md"],
+			path: "./Sources/GCDWebUploader",
 			sources: ["Core"],
-			resources: [.copy("./Bundle/GCDWebUploader.bundle"), .copy("PrivacyInfo.xcprivacy")],
-			publicHeadersPath: "Include"
-//			cxxSettings: [
-//				.headerSearchPath("./private")
-//			]
+			resources: [.copy("./Bundle/GCDWebUploader.bundle")],
+			publicHeadersPath: "Include",
+			cxxSettings: [
+				.headerSearchPath("./Private")
+			]
 		)
-	]
+    ]
 )
