@@ -20,7 +20,7 @@ let package = Package(
 		),
 		.target(
 			name: "GCDWebServer",
-			sources: ["Core", "Requests", "Responses", "Private"],
+			sources: ["Core", "Requests", "Responses"],
 			publicHeadersPath: "Include"
 		),
 		.target(
