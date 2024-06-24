@@ -66,7 +66,7 @@ NS_ASSUME_NONNULL_END
 
 - (instancetype)initWithUploadDirectory:(NSString*)path {
   if ((self = [super init])) {
-    NSString* bundlePath = [[[NSBundle mainBundle] pathsForResourcesOfType:@"bundle" inDirectory:@"GCDWebServerSPM_GCDWebUploader.bundle"] first];
+    NSString* bundlePath = [[[NSBundle mainBundle] pathsForResourcesOfType:@"bundle" inDirectory:@"GCDWebServerSPM_GCDWebUploader.bundle"] firstObject];
     if (bundlePath == nil) {
       return nil;
     }
